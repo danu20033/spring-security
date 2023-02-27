@@ -1,2 +1,26 @@
-package com.danushka.test.springsecurityclient.entity;public class User {
+package com.danushka.test.springsecurityclient.entity;
+
+import lombok.Data;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+@Entity
+@Data
+public class User {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+    private String firstName;
+    private String lastName;
+    private String email;
+    @Column(length = 60)
+    private String password;
+    private String role;
+    private boolean enabled = false;
+
+
 }
